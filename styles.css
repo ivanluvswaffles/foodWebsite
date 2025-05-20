@@ -1,0 +1,1123 @@
+/*css variables work like regular variables except its css and when you use them you have to say var(*name of variable here*)*/
+:root {
+    --background-color: antiquewhite;
+    --text-color: #333;
+    --heading-background: white;
+    --border-color: black;
+    --link-color: #452209;
+    --link-hover-bg: #8b4513;
+    --link-hover-color: white;
+    --box-shadow-color: rgba(139, 69, 19, 0.3);
+    --table-odd-row: white;
+    --table-even-row: #f2f2f2;
+    --table-header-bg: #8b4513;
+    --table-header-color: white;
+    --table-hover: #ffe0b3;
+    --restaurant-title: #8b4513;
+    --jeopardy-blue: #060CE9;
+    --jeopardy-gold: #FFCC00;
+    --jeopardy-item-color: #FFCC00;
+    --jeopardy-text: white;
+    --score-color: #060CE9;
+    --correct-color: #00CC00;
+    --incorrect-color: #FF3333;
+    --result-bg: rgba(0, 0, 0, 0.8);
+    --progress-bg: #e0e0e0;
+    --progress-fill: limegreen;
+    --step-border: tan;
+    --step-number-bg: tan;
+    --step-number-color: #452209;
+    --ingredient-bg: white;
+    --vote-bg: #f0f0f0;
+    --review-category-bg: #ffe0b3;
+    --review-category-color: #6b3000;
+    --review-category-active-bg: #8b4513;
+    --review-section-bg: white;
+    --restaurant-card-bg: white;
+    --must-try-bg: #fff3e6;
+    --must-try-border: #ffc107;
+    --snack-item-bg: white;
+    --snack-item-border: #eee;
+    --snack-title: #6b3000;
+    --scrollbar-thumb: rgb(170, 170, 170);
+    --scrollbar-thumb-hover: rgb(99, 99, 99);
+}
+
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --heading-background: #232323;
+    --border-color: #e0e0e0;
+    --link-color: #ffa270;
+    --link-hover-bg: #c87137;
+    --link-hover-color: #f0f0f0;
+    --box-shadow-color: rgba(255, 162, 112, 0.3);
+    --table-odd-row: #232323;
+    --table-even-row: #2c2c2c;
+    --table-header-bg: #c87137;
+    --table-header-color: #f0f0f0;
+    --table-hover: #3d2c1e;
+    --restaurant-title: #ffa270;
+    --jeopardy-blue: #1a1a80;
+    --jeopardy-gold: #ffd84d;
+    --jeopardy-item-color: #ffd84d;
+    --jeopardy-text: #e0e0e0;
+    --score-color: #4d4dff;
+    --correct-color: #00b300;
+    --incorrect-color: #cc0000;
+    --result-bg: rgba(0, 0, 0, 0.9);
+    --progress-bg: #333333;
+    --progress-fill: #00b300;
+    --step-border: #8b5a2b;
+    --step-number-bg: #8b5a2b;
+    --step-number-color: #f0f0f0;
+    --ingredient-bg: #232323;
+    --vote-bg: #2c2c2c;
+    --review-category-bg: #3d2c1e;
+    --review-category-color: #ffa270;
+    --review-category-active-bg: #c87137;
+    --review-section-bg: #232323;
+    --restaurant-card-bg: #232323;
+    --must-try-bg: #3d2c1e;
+    --must-try-border: #ffd84d;
+    --snack-item-bg: #232323;
+    --snack-item-border: #333333;
+    --snack-title: #ffa270;
+    --scrollbar-thumb: #4d4d4d;
+    --scrollbar-thumb-hover: #676767;
+}
+
+.themeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--heading-background);
+    color: var(--text-color);
+    border: medium solid var(--border-color);
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: crosshair;
+    font-weight: bold;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.themeToggle:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    cursor: crosshair;
+}
+
+.bigReviewHeader {
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+#scoreDisplay {
+    font-size: 32px;
+    text-align: center;
+    margin: 15px auto;
+    padding: 10px 20px;
+    background-color: var(--heading-background);
+    border: thick solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    font-weight: bold;
+    color: var(--score-color);
+    font-family: 'Impact', sans-serif;
+}
+
+.resultText {
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: 'Impact', sans-serif;
+}
+
+.resultText.correct {
+    color: var(--correct-color);
+}
+
+.resultText.incorrect {
+    color: var(--incorrect-color);
+}
+
+.correctAnswer {
+    color: var(--jeopardy-text);
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+
+.gameOverTitle {
+    color: var(--jeopardy-gold);
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: 'Impact', sans-serif;
+}
+
+.finalScore {
+    color: var(--jeopardy-text);
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+
+.gameOverMessage {
+    color: var(--jeopardy-text);
+    font-size: 24px;
+    margin-bottom: 40px;
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+
+.resultScreen, .gameOverScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--result-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#qScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--result-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.qScreenContent {
+    background-color: var(--jeopardy-blue);
+    border: thick solid var(--jeopardy-gold);
+    border-radius: 10px;
+    padding: 30px;
+    width: 70%;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.5);
+    animation: fadeIn 0.5s ease;
+}
+
+.qText {
+    color: var(--jeopardy-text);
+    font-size: 32px;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+
+.answerInput {
+    width: 80%;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: var(--heading-background);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.submitAnswer, .continueButton, .playAgainButton {
+    background-color: var(--jeopardy-gold);
+    color: var(--jeopardy-blue);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: crosshair;
+    transition: all 0.2s ease;
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+
+.submitAnswer:hover, .continueButton:hover, .playAgainButton:hover {
+    background-color: var(--jeopardy-text);
+    transform: scale(1.05);
+}
+
+.categoryTitle {
+    color: var(--jeopardy-gold);
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+
+#jeopardyContainer {
+    display: grid;
+    width: 960px;
+    height: 600px;
+    margin: auto;
+    border: thick var(--border-color) solid;
+    grid-template-columns: repeat(6, 1fr);
+    background-color: var(--jeopardy-blue);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.jeopardyCat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    border: medium var(--border-color) solid;
+    background-color: var(--jeopardy-blue);
+    color: var(--jeopardy-text);
+    font-weight: bold;
+    font-family: 'Helvetica', Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.jeopardyItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    border: medium var(--border-color) solid;
+    background-color: var(--jeopardy-blue);
+    color: var(--jeopardy-item-color);
+    font-weight: bold;
+    font-family: 'Impact', sans-serif;
+    transition: all 0.3s ease;
+    cursor: crosshair;
+    box-sizing: border-box;
+    font-size: 40px;
+}
+
+.jeopardyItem:hover:not(.answered) {
+    background-color: #0A0FFF;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.jeopardyItem.answered {
+    background-color: #333;
+    cursor: not-allowed;
+}
+
+.jeopardyItem.answered.correct {
+    background-color: rgba(0, 128, 0, 0.3);
+}
+
+.jeopardyItem.answered.incorrect {
+    background-color: rgba(128, 0, 0, 0.3);
+}
+
+#links {
+    background-color: var(--step-border);
+    border-radius: 15px;
+    border: 3px solid var(--step-number-color);
+    margin: auto;
+    box-shadow: 0 4px 8px var(--box-shadow-color);
+    text-align: center;
+    font-size: 20px;
+    transition: all 0.1s ease;
+}
+
+#links:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--box-shadow-color);
+}
+
+#links a {
+    display: inline-block;
+    color: var(--link-color);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 10px;
+    cursor: crosshair;
+}
+
+#links a:hover {
+    background-color: var(--link-hover-bg);
+    color: var(--link-hover-color);
+    transform: scale(1.1);
+    cursor: crosshair;
+}
+
+#links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--link-hover-bg);
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+#links a:hover:after {
+    width: 70%;
+}
+
+a {
+    font-weight: bold;
+    color: var(--link-color);
+    cursor: crosshair;
+    text-decoration: none;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+#scoreFeed {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    columns: 3;
+    color: var(--text-color);
+}
+
+/* Bar colors */
+#yesSandwichBar, #horizontalBar, #onTopBar, #spoonBar, #cerealFirstBar, #cokeBar, #wafflesBar, #foldBar, #drumsBar, #lickBar, #edgesBar, #peecanBar, #noPineappleBar, #splitBar {
+    background-color: red;
+    z-index: 2;
+}
+
+#noSandwichBar, #diagonalBar, #onSideBar, #forkBar, #milkFirstBar, #pepsiBar, #pancakesBar, #noFoldBar, #flatsBar, #biteBar, #centerBar, #pukahnBar, #pineappleBar, #wholeBar {
+    background-color: blue;
+    z-index: 1;
+}
+
+.interactiveSteps {
+    background-color: var(--heading-background);
+    border: 3px solid var(--step-number-color);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 90%;
+    box-shadow: 0 4px 8px var(--box-shadow-color);
+}
+
+.recipeProgressContainer {
+    width: 100%;
+    height: 20px;
+    background-color: var(--progress-bg);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: medium var(--border-color) solid;
+}
+
+.recipeProgressBar {
+    height: 100%;
+    background-color: var(--progress-fill);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px dashed var(--step-border);
+    opacity: 0;
+    transition: all 0.5s ease;
+    color: var(--text-color);
+}
+
+.stepActive {
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px dashed var(--step-border);
+    transition: all 0.5s ease;
+    color: var(--text-color);
+}
+
+.stepCompleted {
+    opacity: 0.4;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px dashed var(--step-border);
+    transition: all 0.5s ease;
+    color: var(--text-color);
+}
+
+.step:last-child.completed {
+    color: var(--progress-fill);
+    font-weight: bold;
+}
+
+.stepNumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--step-number-bg);
+    border: 2px solid var(--step-number-color);
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: crosshair;
+    font-weight: bold;
+    color: var(--step-number-color);
+    transition: all 0.3s ease;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.stepActive .stepNumber:hover {
+    transform: scale(1.1);
+    background-color: var(--link-hover-bg);
+    color: var(--link-hover-color);
+}
+
+.stepCompleted .stepNumber {
+    background: #ccc;
+    color: var(--heading-background);
+}
+
+.stepCompleted .stepNumber:after {
+    content: "✓";
+    position: absolute;
+    font-size: 50px;
+    color: var(--progress-fill);
+}
+
+.stepText {
+    font-size: 18px;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.picAndIngredients {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    gap: 15px;
+    align-items: center;
+}
+
+.ingredients {
+    border: thick var(--border-color) solid;
+    background-color: var(--ingredient-bg);
+    border-radius: 20px;
+    order: -1;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 400px;
+    padding-right: 10px;
+    color: var(--text-color);
+}
+
+.recipeImage {
+    border: thick var(--border-color) solid;
+    box-sizing: border-box;
+    border-radius: 10%;
+    height: 400px;
+    width: auto;
+}
+
+.recipeHeading {
+    font-size: 50px;
+    font-weight: bold;
+    background-color: var(--heading-background);
+    max-width: 50%;
+    text-align: center;
+    margin: auto;
+    border-width: thick;
+    border-style: solid;
+    border-color: var(--border-color);
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--text-color);
+}
+
+.recipeDifficulty {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+#recipeSearchContainer {
+    text-align: center;
+    margin: 20px auto;
+}
+
+#recipeSearchBar {
+    width: 80%;
+    padding: 10px;
+    font-size: 18px;
+    border: medium var(--step-number-color) solid;
+    border-radius: 10px;
+    background-color: var(--heading-background);
+    color: var(--text-color);
+}
+
+.tierFeedItem {
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+.scoreFeedContainer {
+    width: 95%;
+    height: 300px;
+    position: relative;
+    background-color: var(--heading-background);
+    border: thick var(--border-color) solid;
+    margin: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.tierItems input[type="button"] {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background-color: var(--heading-background);
+    border: thick solid var(--border-color);
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    background-size: contain;
+    background-position: center;
+    cursor: crosshair;
+    color: var(--text-color);
+}
+
+.tierList {
+    max-width: 60%;
+    margin-left: 2.5%;
+    border: thick var(--border-color) solid;
+    margin: auto;
+}
+
+#similarityContainer {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#submitTierList {
+    max-width: 45%;
+    font-size: 24px;
+    padding: 10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#similarityScoreP {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+#similarityScore {
+    font-size: 54px;
+    font-weight: bold;
+}
+
+.tierRow {
+    display: flex;
+    background-color: var(--table-even-row);
+}
+
+.tierName {
+    width: 100px;
+    height: auto;
+    background-color: #333;
+    color: var(--jeopardy-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: thick var(--border-color) solid;
+    border-right: thick var(--border-color) solid;
+}
+
+.tierRow > div:nth-child(2) {
+    display: flex;
+}
+
+.voteContainer {
+    width: 80%;
+    height: 40px;
+    margin: 20px auto;
+    display: flex;
+    border: medium solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--vote-bg);
+}
+
+.percentageBar {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    padding-bottom: 10px;
+    color: var(--jeopardy-text);
+    text-align: center;
+    transition: width 0.5s ease;
+    flex-shrink: 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 0;
+}
+
+.bigText {
+    font-size: 48px;
+    text-align: center;
+    color: var(--jeopardy-gold);
+    margin: 20px 0;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+    font-family: 'Impact', sans-serif;
+    background-color: var(--jeopardy-blue);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border: thick solid var(--border-color);
+    width: 960px;
+    margin: auto;
+}
+
+.imageContainer:hover .overlay {
+    opacity: 1;
+}
+
+.imageContainer:hover ~ figcaption {
+    opacity: 0;
+}
+
+figcaption {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    color: var(--text-color);
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.imageContainer .image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10%;
+    border: thick solid var(--border-color);
+    box-sizing: border-box;
+}
+
+.imageContainer .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: black;
+    border-radius: 10%;
+}
+
+.imageContainer:hover .overlay {
+    opacity: 1;
+}
+
+.button input[type="button"] {
+    width: 100%;
+    height: 100%;
+    background-color: var(--heading-background);
+    border: thick solid var(--border-color);
+    color: var(--text-color);
+    font-size: 300%;
+    font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    transition-duration: .5s;
+    border-radius: 10px;
+}
+
+.button input[type="button"]:hover {
+    color: var(--heading-background);
+    background-color: var(--border-color);
+    transform: scale(1.05);
+    cursor: crosshair;
+}
+
+.button {
+    width: 31%;
+    height: 100px;
+    padding: 1%;
+    display: inline-block;
+}
+
+.multiColumn p {
+    margin-top: 0;
+}
+
+.multiColumn {
+    column-count: 3;
+    column-rule-style: solid;
+    column-rule-width: medium;
+    column-rule-color: var(--border-color);
+    column-span: 3;
+    background-color: var(--heading-background);
+    border-radius: 15px;
+    padding: 20px;
+    column-gap: 40px;
+    border: medium solid var(--border-color);
+    color: var(--text-color);
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    border: thick solid var(--border-color);
+    box-sizing: border-box;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: black;
+    border-radius: 10%;
+}
+
+.overlayText {
+    color: var(--jeopardy-text);
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Comic Sans MS', cursive;
+    text-align: center;
+}
+
+h1 {
+    text-decoration: underline;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+    border-style: dashed;
+    font-size: 60px;
+    padding: 15px;
+    background-color: var(--heading-background);
+    animation: glow 1.5s ease-in-out infinite alternate;
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+h2 {
+    text-align: center;
+    color: var(--text-color);
+}
+
+h3 {
+    text-align: center;
+    color: var(--text-color);
+}
+
+p {
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+    padding: 2px;
+    color: var(--text-color);
+}
+
+table {
+    border-spacing: 0;
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    font-family: 'Arial', sans-serif;
+    background-color: var(--table-odd-row);
+    color: var(--text-color);
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-color);
+    text-align: left;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-even-row);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--table-odd-row);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: var(--table-hover);
+    transition: background-color 0.3s ease;
+}
+
+.reviewCategories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.reviewCategoryBtn {
+    background-color: var(--review-category-bg);
+    border: 2px solid var(--link-hover-bg);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--review-category-color);
+    cursor: crosshair;
+    transition: all 0.3s ease;
+}
+
+.reviewCategoryBtn:hover {
+    background-color: var(--link-hover-bg);
+    color: var(--jeopardy-text);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px var(--box-shadow-color);
+}
+
+.reviewCategoryBtn.active {
+    background-color: var(--review-category-active-bg);
+    color: var(--jeopardy-text);
+}
+
+.reviewSection {
+    background-color: var(--review-section-bg);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px var(--box-shadow-color);
+    border: thick var(--border-color) solid;
+    margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.reviewHeader {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ratingLegend {
+	display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 15px;
+    color: #6b3000;
+}
+
+.restaurantCard {
+	display: flex;
+    background-color: var(--restaurant-card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: thick black solid;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.restaurantCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.restaurantImg {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+}	
+
+.restaurantInfo {
+    padding: 20px;
+}
+
+.restaurantInfo h3 {
+    margin-top: 0;
+    color: #8b4513;
+	font-size: 25px;
+}
+
+.price {
+    color: #353535;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.reviewText {
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.mustTry {
+    background-color: var(--must-try-bg);
+    padding: 10px;
+    border-radius: 10px;
+    border-left: 3px solid var(--must-try-border);
+	width: 500px;
+}
+
+.snackGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 25px;
+	margin-top: 30px;
+}
+
+.snackItem {
+    background-color: var(--snack-item-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--snack-item-border);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.snackItem:hover {
+    transform: scale(1.03);
+}
+
+.snackImg {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.snackItem h4 {
+    margin: 15px 15px 5px;
+    color: var(--snack-title);
+}
+
+.snackRating {
+    margin: 0 15px 10px;
+}
+
+.snackItem p {
+    padding: 0 15px 15px;
+    margin: 0;
+    font-size: 14px;
+    flex-grow: 1;
+}
+
+footer {
+    color: var(--text-color);
+}
+
+/*::-webkit allows you to modify the default styling of HTML*/
+::-webkit-scrollbar {
+	width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--scrollbar-thumb);
+	border: medium black solid;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--scrollbar-thumb-hover);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--background-color);
+	padding-right: 1%;/*add specified amount of padding between right and content*/
+	padding-left: 1%;/*add specified amount of padding between left and content*/
+	animation: fadeIn 1s ease;
+	font-family: Arial;
+	cursor: crosshair;
+}
+
+@keyframes fadeIn{
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes glow {
+	from {
+		text-shadow: 0 0 5px white;
+	}
+	to {
+		text-shadow: 0 0 15px orange;
+	}
+}
